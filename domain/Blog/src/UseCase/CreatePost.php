@@ -3,13 +3,13 @@
 namespace Domain\Blog\UseCase;
 
 use Domain\Blog\Entity\Post;
-use Domain\Blog\Test\Adapter\InMemoryPostRepository;
+use Domain\Blog\Port\PostRepositoryInterface;
 
 class CreatePost
 {
-  protected InMemoryPostRepository $repository;
+  protected PostRepositoryInterface $repository;
 
-  public function __construct(InMemoryPostRepository $repository)
+  public function __construct(PostRepositoryInterface $repository)
   {
     $this->repository = $repository;
   }

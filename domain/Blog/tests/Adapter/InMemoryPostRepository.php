@@ -3,16 +3,15 @@
 namespace Domain\Blog\Test\Adapter;
 
 use Domain\Blog\Entity\Post;
+use Domain\Blog\Port\PostRepositoryInterface;
 
-class InMemoryPostRepository
+class InMemoryPostRepository implements PostRepositoryInterface
 {
   public array $posts = [];
 
-  public function save(Post $post): Post
+  public function save(Post $post)
   {
     $this->posts[$post->uuid] = $post;
-
-    return $post;
   }
 
   public function findOne(string $uuid): ?Post
