@@ -21,6 +21,9 @@ class PDOPostRepository implements PostRepositoryInterface
 
   public function save(Post $post)
   {
+    echo '<pre>';
+    print_r($post);
+    echo '</pre>';
     $query = $this->pdo->prepare('INSERT INTO post SET 
       title = :title,
       content = :content,
